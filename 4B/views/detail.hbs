@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero Detail</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    .card {
+      background-color: #343a40;
+      color: #ffffff;
+    }
+
+    .btn-warning {
+      color: #ffffff;
+    }
+
+    .btn-secondary {
+      background-color: #6c757d;
+    }
+
+    .card-title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .card-text {
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="card shadow-lg">
+          <img src="{{hero.photo}}" class="card-img-top img-fluid" alt="{{hero.hero_name}}"
+            style="max-height: 400px; object-fit: cover;">
+          <div class="card-body">
+            <h2 class="card-title text-center">{{hero.hero_name}}</h2>
+            <p class="card-text"><strong>Type:</strong> {{hero.hero_type}}</p>
+            <p class="card-text"><strong>Owner:</strong> {{hero.owner}}</p>
+
+            {{#if isOwner}}
+            <div class="d-flex justify-content-between mt-4">
+              <a href="/editHero/{{hero.id}}" class="btn btn-warning">Edit</a>
+              <form action="/deleteHero/{{hero.id}}" method="POST">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </div>
+            {{/if}}
+
+            <a href="/" class="btn btn-secondary mt-3 d-block">Back</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+body {
+  background-color: #343a40;
+  /* Dark background */
+}
+
+.card {
+  background-color: #495057;
+  /* Darker card background */
+}
+
+.navbar-brand {
+  color: #f8f9fa !important;
+  /* Logo color */
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border: none;
+}

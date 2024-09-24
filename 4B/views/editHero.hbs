@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Hero</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Edit Hero</h1>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card shadow-lg p-4">
+          <form action="/editHero/{{hero.id}}" method="POST">
+            <div class="form-group">
+              <label for="name">Hero Name:</label>
+              <input type="text" class="form-control" name="name" value="{{hero.name}}" required>
+            </div>
+
+            <div class="form-group">
+              <label for="type_id">Hero Type:</label>
+              <select class="form-control" name="type_id" required>
+                {{#each types}}
+                <option value="{{this.id}}" {{#if (eq this.id ../hero.type_id)}}selected{{/if}}>{{this.name}}</option>
+                {{/each}}
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="photo">Photo URL:</label>
+              <input type="text" class="form-control" name="photo" value="{{hero.photo}}" required>
+            </div>
+
+            <div class="d-flex justify-content-between">
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+              <a href="/detail/{{hero.name}}" class="btn btn-secondary">Cancel</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
